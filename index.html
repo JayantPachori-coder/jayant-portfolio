@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jayant Pachori | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+
+    .sidebar {
+      width: 260px;
+      background: #060c16;
+      color: #fff;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .sidebar img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid white;
+    }
+
+    .sidebar h2 {
+      margin: 15px 0 10px;
+    }
+
+    .social-links a {
+      color: white;
+      margin: 0 8px;
+      font-size: 1.2rem;
+      text-decoration: none;
+    }
+
+    .nav-menu {
+      margin-top: 30px;
+      width: 100%;
+    }
+
+    .nav-menu a {
+      display: block;
+      padding: 12px 10px;
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .nav-menu a:hover, .nav-menu .active {
+      background: #1f2e4a;
+      border-left: 4px solid #00f2fe;
+    }
+
+    .main-section {
+      flex: 1;
+      background: url('images/abcde.jpg') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding-left: 60px;
+      color: white;
+    }
+
+    .intro-text {
+      max-width: 500px;
+    }
+
+    .intro-text h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .intro-text p {
+      font-size: 1.5rem;
+    }
+
+    .typed-text::after {
+      content: '|';
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50%, 100% { opacity: 1; }
+      25%, 75% { opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <img src="images/photo.jpg" alt="Jayant Pachori">
+      <h2>Jayant Pachori</h2>
+      <div class="social-links">
+        <a href=" https://x.com/JayantPac12218?t=6VhwaVdGdG0zmiBJjIivXQ&s=08 "><i class="fab fa-x-twitter"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=100072865898739&rdid=jRatbUMx0b7mpote#"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/jp16_official?igsh=OWxubDhxOHh6bWQ4"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-skype"></i></a>
+        <a href="https://www.linkedin.com/in/jayant-pachori-44b763275"><i class="fab fa-linkedin"></i></a>
+      </div>
+      <nav class="nav-menu">
+        <a href="#" class="active"><i class="fas fa-home"></i> Home</a>
+        <a href="about.html"><i class="fas fa-user"></i> About</a>
+        <a href="skills.html"><i class="fas fa-file-alt"></i> Skills & Education</a>
+        <a href="projects.html"><i class="fas fa-image"></i> Projects</a>
+        <a href="#"><i class="fas fa-cogs"></i> Services</a>
+        <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-section">
+      <div class="intro-text">
+        <h1>Jayant Pachori</h1>
+        <p>I’m a <span class="typed-text" id="typed"></span></p>
+      </div>
+    </main>
+  </div>
+
+  <!-- Typing Animation Script (Looping) -->
+  <script>
+  const roles = ["Full Stack Developer", "Data Science Enthusiast", "UI/UX Designer"];
+  let index = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const speed = 100;
+  const pause = 1500;
+
+  function type() {
+    const typed = document.getElementById("typed");
+    const currentText = roles[index];
+
+    if (!isDeleting) {
+      typed.textContent = currentText.substring(0, charIndex + 1);
+      charIndex++;
+      if (charIndex === currentText.length) {
+        isDeleting = true;
+        setTimeout(type, pause);
+        return;
+      }
+    } else {
+      typed.textContent = currentText.substring(0, charIndex - 1);
+      charIndex--;
+      if (charIndex === 0) {
+        isDeleting = false;
+        index = (index + 1) % roles.length;
+      }
+    }
+
+    setTimeout(type, isDeleting ? speed / 2 : speed);
+  }
+
+  window.onload = type;
+</script>
+
+</body>
+</html>

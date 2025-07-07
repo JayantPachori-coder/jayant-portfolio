@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects | Jayant Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      display: flex;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f7f7f7;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: #060c16;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .sidebar img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 3px solid white;
+      object-fit: cover;
+    }
+
+    .sidebar h2 {
+      margin: 10px 0;
+    }
+
+    .social-links a {
+      color: #fff;
+      margin: 0 6px;
+      font-size: 1.2rem;
+    }
+
+    .nav-menu {
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    .nav-menu a {
+      display: block;
+      padding: 10px;
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .nav-menu a:hover, .nav-menu .active {
+      background-color: #1f2e4a;
+      border-left: 4px solid #00f2fe;
+      color: #fff;
+    }
+
+    .main {
+      flex: 1;
+      display: flex;
+      padding: 30px;
+      gap: 30px;
+    }
+
+    .project-list {
+      width: 200px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .project-item {
+      cursor: pointer;
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .project-item img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-number {
+      position: absolute;
+      top: 5px;
+      left: 8px;
+      background: #00f2fe;
+      color: #000;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 50%;
+      font-size: 14px;
+    }
+
+    .project-details {
+      flex: 1;
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .project-background {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-size: cover;
+      background-position: center;
+      filter: blur(6px) brightness(0.7);
+      z-index: 1;
+      display: none;
+    }
+
+    .project-text {
+      position: relative;
+      z-index: 2;
+      padding: 30px;
+      margin: 40px;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      display: none;
+      font-size: 15px;
+      color: #333;
+    }
+
+    .project-text::after {
+      content: "";
+      position: absolute;
+      bottom: -20px;
+      left: 40px;
+      border-width: 20px 20px 0;
+      border-style: solid;
+      border-color: #fff transparent transparent transparent;
+    }
+
+    .project-text.active,
+    .project-background.active {
+      display: block;
+    }
+
+    .project-text h3 {
+      margin-top: 0;
+      color: #222;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Sidebar -->
+<aside class="sidebar">
+  <img src="images/photo.jpg" alt="Jayant Pachori">
+  <h2>Jayant Pachori</h2>
+  <div class="social-links">
+    <a href="#"><i class="fab fa-x-twitter"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.instagram.com/jp16_official?igsh=OWxubDhxOHh6bWQ4"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-skype"></i></a>
+    <a href="https://www.linkedin.com/in/jayant-pachori-44b763275"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <nav class="nav-menu">
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="about.html"><i class="fas fa-user"></i> About</a>
+    <a href="skills.html"><i class="fas fa-file-alt"></i> Skills & Education</a>
+    <a href="projects.html" class="active"><i class="fas fa-image"></i> Projects</a>
+    <a href="#"><i class="fas fa-cogs"></i> Services</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+  </nav>
+</aside>
+
+<!-- Main -->
+<main class="main">
+
+  <!-- Project Images List -->
+  <div class="project-list">
+    <div class="project-item" onclick="showProject(1, 'images/dustbin.jpg')">
+      <span class="project-number">1</span>
+      <img src="images/ram.jpg" alt="Project 1">
+    </div>
+
+    <div class="project-item" onclick="showProject(2, 'images/gui_baseeee.jpg')">
+      <span class="project-number">2</span>
+      <img src="images//dd.png" alt="Project 2">
+    </div>
+
+    <div class="project-item" onclick="showProject(3, 'images/bgm.png')">
+      <span class="project-number">3</span>
+      <img src="images//h.jpg" alt="Project 3">
+    </div>
+
+    <div class="project-item" onclick="showProject(4, 'images/er.jpg')">
+      <span class="project-number">4</span>
+      <img src="images/dbms.jpg" alt="Project 4">
+    </div>
+  </div>
+
+  <!-- Project Details -->
+  <div class="project-details">
+    <div class="project-background" id="projectBg"></div>
+
+    <div class="project-text" id="project1">
+      <h3>Smart Waste Segregator</h3>
+      <p>This project includes will creatively design a working prototype using various electronic components and prepare a research paper side by side. For the next two months, they will provide regular reports detailing their activities and future plans for the project.
+
+
+This project is carried forward to the Second year where they will work on advanced features for their prototype, including integrating it with Object Oriented Languages like Java and Communication Systems through a wi-fi module.
+
+
+Students gain more in-depth knowledge as they work on the same project and prototype over several semesters, which helps them create a fully working prototype and application that can be used in the Industry.</p>
+      <a href="https://www.linkedin.com/in/jayant-pachori-44b763275?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="linkedin-btn"><i class="fab fa-linkedin"></i> visit</a>
+    </div>
+
+    <div class="project-text" id="project2">
+      <h3>Smart Waste Segregator GUI</h3>
+      <p>successful completion of our project, Smart Waste Segregator GUI - Synergy! This innovative solution combines a seamless user interface with database connectivity using SQL, making waste management smarter and more efficient.
+
+The project includes features like:
+
+Login and User Registration
+Dynamic Home Page
+Selection of Waste Type (Plastic/Metal)
+Integration with SQL for efficient data management
+</p>
+      <a href="https://www.linkedin.com/in/jayant-pachori-44b763275?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="linkedin-btn"><i class="fab fa-linkedin"></i> Vist</a>
+    </div>
+
+    <div class="project-text" id="project3">
+      <h3>i-mads project</h3>
+      <p> I recently completed the i-MADS project, which stands for Image Processing using Math & Data Structures. This 6-8 week project is designed for first-year students enrolled in courses such as Linear Algebra & Differential Equations and Data Structures & Algorithms.
+ In this integrated project, I explored the application of key linear algebra and data structures concepts in image processing, using industry-standard tools like LabelBox. The project provided hands-on exposure to real-life industry work scenarios, bridging the gap between theoretical knowledge and practical applications 
+
+In addition to being a participant, I also served as a Learning Manager, coordinating activities and facilitating communication between first-year participants, second-year mentors, and industry professionals. This role enhanced my leadership and organizational skills, as I ensured smooth collaboration and effective learning throughout the project.
+The project was mentored by second-year students who had previously completed it, offering valuable guidance and insights. Additionally, we had the opportunity to interact with industry professionals, gaining firsthand knowledge and understanding of industry practices. This experience was an excellent opportunity to apply my coursework in a practical setting and develop skills relevant to the industry.</p>
+      <a href="https://www.linkedin.com/in/jayant-pachori-44b763275?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="linkedin-btn"><i class="fab fa-linkedin"></i> Vist</a>
+    </div>
+
+    <div class="project-text" id="project4">
+      <h3>Smart Hackathon tracker:-Database Project</h3>
+      <p>This project is about creating a Virtual Hackathon Tracker that uses a database to store
+ and manage all important data. It helps in keeping track of participants, teams, events,
+ and scores during a virtual hackathon. The system is built using structured database
+ design and SQL to make data handling easy, fast, and reliable.</p>
+      <a href="https://www.linkedin.com/in/jayant-pachori-44b763275?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="linkedin-btn"><i class="fab fa-linkedin"></i> Vist</a>
+    </div>
+  </div>
+
+</main>
+
+<!-- JavaScript -->
+<script>
+  function showProject(projectNumber, backgroundImage) {
+    // Hide all text and background
+    document.querySelectorAll('.project-text').forEach(text => text.classList.remove('active'));
+    const bg = document.getElementById('projectBg');
+    bg.classList.add('active');
+    bg.style.backgroundImage = `url('${backgroundImage}')`;
+
+    // Show selected text
+    const selectedText = document.getElementById('project' + projectNumber);
+    selectedText.classList.add('active');
+  }
+</script>
+
+</body>
+</html>

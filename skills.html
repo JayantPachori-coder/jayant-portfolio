@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills & Education | Jayant Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; display: flex; margin: 0; padding: 0; height: 100vh; }
+    .sidebar { width: 260px; background-color: #060c16; color: #fff; padding: 30px 20px; display: flex; flex-direction: column; align-items: center; }
+    .sidebar img { width: 120px; height: 120px; border-radius: 50%; border: 3px solid white; object-fit: cover; }
+    .sidebar h2 { margin-top: 10px; font-size: 1.5rem; }
+    .social-links { margin: 15px 0; }
+    .social-links a { margin: 0 8px; color: #fff; font-size: 1.2rem; }
+    .nav-menu { margin-top: 20px; width: 100%; }
+    .nav-menu a { display: block; color: #ccc; text-decoration: none; padding: 10px; font-size: 16px; }
+    .nav-menu a:hover, .nav-menu .active { background-color: #1f2e4a; border-left: 4px solid #00f2fe; color: #fff; }
+    .main { flex: 1; background: #fff; padding: 40px; overflow-y: auto; }
+    .main h1 { margin-bottom: 20px; font-size: 2rem; border-bottom: 3px solid #00f2fe; display: inline-block; padding-bottom: 5px; }
+
+    .skills-section { margin-bottom: 40px; }
+    .skills-section h2 { margin-bottom: 10px; }
+    .skill { margin-bottom: 15px; }
+    .skill-header { display: flex; justify-content: space-between; font-weight: bold; margin-bottom: 5px; }
+    .percentage { color: #333; font-weight: bold; }
+    .progress-bar { background-color: #e0e0e0; border-radius: 20px; overflow: hidden; height: 15px; }
+    .progress { background-color: #00aaff; height: 100%; transition: width 0.5s ease-in-out; }
+
+    .education { margin-top: 40px; }
+    .timeline { border-left: 3px solid #00aaff; padding-left: 20px; margin-top: 20px; }
+    .timeline-item { margin-bottom: 30px; position: relative; }
+    .timeline-item::before { content: ""; position: absolute; left: -10px; top: 0; width: 15px; height: 15px; background-color: #00aaff; border-radius: 50%; }
+    .timeline-item h3 { font-size: 1.2rem; margin-bottom: 5px; }
+    .timeline-item p { margin-bottom: 8px; font-size: 15px; color: #444; }
+
+    .cgpa { margin-top: 50px; text-align: center; font-size: 40px; font-weight: bold; }
+    .cgpa span { display: inline-block; margin: 10px; padding: 5px 15px; border-radius: 8px; font-size: 42px; transition: color 0.5s; }
+
+    .courses { margin-top: 20px; }
+    .courses ul { list-style-type: disc; margin-left: 20px; }
+    .courses li { font-size: 16px; color: #555; }
+  </style>
+</head>
+<body>
+
+<aside class="sidebar">
+  <img src="images/photo.jpg" alt="Jayant Pachori">
+  <h2>Jayant Pachori</h2>
+  <div class="social-links">
+    <a href="https://x.com/JayantPac12218"><i class="fab fa-x-twitter"></i></a>
+    <a href="https://www.facebook.com/profile.php?id=100072865898739"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-skype"></i></a>
+    <a href="https://www.linkedin.com/in/jayant-pachori-44b763275"><i class="fab fa-linkedin"></i></a>
+  </div>
+  <nav class="nav-menu">
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="about.html"><i class="fas fa-user"></i> About</a>
+    <a href="skills.html" class="active"><i class="fas fa-file-alt"></i> Skills & Education</a>
+    <a href="projects.html"><i class="fas fa-image"></i> Projects</a>
+    <a href="#"><i class="fas fa-cogs"></i> Services</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+  </nav>
+</aside>
+
+<main class="main">
+  <h1>Skills</h1>
+
+  <div class="skills-section">
+    <h2>Frontend</h2>
+    <div class="skill"><div class="skill-header"><span>HTML/CSS/JS</span><span class="percentage"><b>85%</b></span></div><div class="progress-bar"><div class="progress" style="width: 85%;"></div></div></div>
+    <div class="skill"><div class="skill-header"><span>Flutter (Beginner)</span><span class="percentage"><b>50%</b></span></div><div class="progress-bar"><div class="progress" style="width: 50%;"></div></div></div>
+  </div>
+
+  <div class="skills-section">
+    <h2>Backend</h2>
+    <div class="skill"><div class="skill-header"><span>Python</span><span class="percentage"><b>95%</b></span></div><div class="progress-bar"><div class="progress" style="width: 95%;"></div></div></div>
+    <div class="skill"><div class="skill-header"><span>Java</span><span class="percentage"><b>80%</b></span></div><div class="progress-bar"><div class="progress" style="width: 80%;"></div></div></div>
+    <div class="skill"><div class="skill-header"><span>SQL</span><span class="percentage"><b>95%</b></span></div><div class="progress-bar"><div class="progress" style="width: 95%;"></div></div></div>
+    <div class="skill"><div class="skill-header"><span>Machine Learning</span><span class="percentage"><b>90%</b></span></div><div class="progress-bar"><div class="progress" style="width: 90%;"></div></div></div>
+    <div class="skill"><div class="skill-header"><span>JavaFX</span><span class="percentage"><b>80%</b></span></div><div class="progress-bar"><div class="progress" style="width: 80%;"></div></div></div>
+  </div>
+
+  <div class="education">
+    <h1>Education</h1>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>NIIT University, Neemrana</h3>
+        <p><strong>B.Tech in Computer Science & Engineering</strong> (2023 - 2027)</p>
+        <p>Relevant Courses: Data Structures, DBMS, OOPs in Java, AI & ML, Discrete Mathematics</p>
+      </div>
+      <div class="timeline-item">
+        <h3>St.Paul's Sr. Sec. School, Chittorgarh</h3>
+        <p><strong>Class XII (CBSE Board)</strong> – PCM with Computer Science</p>
+        <p>Graduated: 2023</p>
+      </div>
+    </div>
+
+    <h1>Completed Courses</h1>
+    <div class="courses">
+      <ul>
+        <li>Data Structures and Algorithms in Python</li>
+        <li>Machine Learning Fundamentals</li>
+        <li>Web Development with HTML, CSS, and JavaScript</li>
+        <li>JavaFX UI Design</li>
+        <li>SQL for Data Science</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="cgpa">
+    Current CGPA:
+    <div id="cgpa-values"><span>8.5</span></div>
+  </div>
+
+</main>
+
+<script>
+  const colors = ['#ff4c4c', '#0099ff', '#00cc66', '#ff9900', '#aa00ff', '#ff3366', '#1abc9c'];
+  const spans = document.querySelectorAll('#cgpa-values span');
+  function updateColors() { spans.forEach(span => { const randomColor = colors[Math.floor(Math.random() * colors.length)]; span.style.color = randomColor; }); }
+  setInterval(updateColors, 3000);
+</script>
+
+</body>
+</html>
