@@ -15,9 +15,11 @@
     body {
       font-family: 'Segoe UI', sans-serif;
       display: flex;
-      height: 100vh;
+      min-height: 100vh;
+      flex-direction: row;
     }
 
+    /* Sidebar */
     .sidebar {
       width: 260px;
       background-color: #060c16;
@@ -39,6 +41,7 @@
     .sidebar h2 {
       margin-top: 10px;
       font-size: 1.5rem;
+      text-align: center;
     }
 
     .social-links {
@@ -70,6 +73,7 @@
       color: #fff;
     }
 
+    /* Main content */
     .main {
       flex: 1;
       background: #fff;
@@ -148,6 +152,69 @@
     .extra-description p {
       margin-bottom: 15px;
     }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .sidebar img {
+        margin-bottom: 10px;
+      }
+
+      .sidebar h2 {
+        width: 100%;
+      }
+
+      .social-links {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
+      .nav-menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-menu a {
+        padding: 8px 12px;
+        border-left: none;
+      }
+
+      .main {
+        padding: 20px;
+      }
+
+      .about-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .about-info {
+        text-align: center;
+      }
+
+      .info-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .info-box {
+        flex: 1 1 100%;
+      }
+    }
   </style>
 </head>
 <body>
@@ -179,7 +246,7 @@
 
     <div class="about-content">
       <div class="about-img">
-        <img src="images//front.jpg" alt="Jayant Profile">
+        <img src="images/front.jpg" alt="Jayant Profile">
       </div>
       <div class="about-info">
         <h2>Full Stack Developer & Data Scientist</h2>
@@ -197,7 +264,6 @@
       </div>
     </div>
 
-    <!-- Added Description Below -->
     <div class="extra-description">
       <p>
         Over the past few semesters, I've actively engaged in building real-world projects—from IoT-based systems like <strong>Smart Waste Segregators</strong> to <strong>Hackathon Tracking Applications</strong> using SQL and Java. These experiences have helped me grow not only as a coder but also as a problem solver and team collaborator.
