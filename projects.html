@@ -11,8 +11,10 @@
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background-color: #f7f7f7;
+      flex-wrap: wrap;
     }
 
+    /* Sidebar */
     .sidebar {
       width: 250px;
       background-color: #060c16;
@@ -21,6 +23,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      flex-shrink: 0;
     }
 
     .sidebar img {
@@ -59,11 +62,13 @@
       color: #fff;
     }
 
+    /* Main content */
     .main {
       flex: 1;
       display: flex;
       padding: 30px;
       gap: 30px;
+      flex-wrap: wrap;
     }
 
     .project-list {
@@ -100,12 +105,14 @@
       font-size: 14px;
     }
 
+    /* Project details */
     .project-details {
       flex: 1;
       position: relative;
       border-radius: 15px;
       overflow: hidden;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      min-width: 300px;
     }
 
     .project-background {
@@ -146,9 +153,83 @@
       display: block;
     }
 
-    .project-text h3 {
-      margin-top: 0;
-      color: #222;
+    .linkedin-btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 8px 15px;
+      background: #0077b5;
+      color: white;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
+    .linkedin-btn:hover {
+      background: #005f86;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-menu a {
+        border-left: none;
+        padding: 8px;
+        font-size: 0.9rem;
+      }
+
+      .main {
+        flex-direction: column;
+        padding: 15px;
+      }
+
+      .project-list {
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 10px;
+      }
+
+      .project-item img {
+        height: 100px;
+      }
+
+      .project-details {
+        margin-top: 20px;
+      }
+
+      .project-text {
+        margin: 20px;
+        padding: 20px;
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .sidebar img {
+        width: 80px;
+        height: 80px;
+      }
+
+      .project-text {
+        padding: 15px;
+        margin: 10px;
+        font-size: 13px;
+      }
     }
   </style>
 </head>
@@ -187,12 +268,12 @@
 
     <div class="project-item" onclick="showProject(2, 'images/gui_baseeee.jpg')">
       <span class="project-number">2</span>
-      <img src="images//dd.png" alt="Project 2">
+      <img src="images/dd.png" alt="Project 2">
     </div>
 
     <div class="project-item" onclick="showProject(3, 'images/bgm.png')">
       <span class="project-number">3</span>
-      <img src="images//h.jpg" alt="Project 3">
+      <img src="images/h.jpg" alt="Project 3">
     </div>
 
     <div class="project-item" onclick="showProject(4, 'images/er.jpg')">
@@ -207,47 +288,26 @@
 
     <div class="project-text" id="project1">
       <h3>Smart Waste Segregator</h3>
-      <p>This project includes will creatively design a working prototype using various electronic components and prepare a research paper side by side. For the next two months, they will provide regular reports detailing their activities and future plans for the project.
-
-
-This project is carried forward to the Second year where they will work on advanced features for their prototype, including integrating it with Object Oriented Languages like Java and Communication Systems through a wi-fi module.
-
-
-Students gain more in-depth knowledge as they work on the same project and prototype over several semesters, which helps them create a fully working prototype and application that can be used in the Industry.</p>
-      <a href="https://www.linkedin.com/in/jayant-pachori-44b763275?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="linkedin-btn"><i class="fab fa-linkedin"></i> visit</a>
+      <p>This project creatively designs a working prototype using various electronic components and prepares a research paper side by side...</p>
+      <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn"><i class="fab fa-linkedin"></i> Visit</a>
     </div>
 
     <div class="project-text" id="project2">
       <h3>Smart Waste Segregator GUI</h3>
-      <p>successful completion of our project, Smart Waste Segregator GUI - Synergy! This innovative solution combines a seamless user interface with database connectivity using SQL, making waste management smarter and more efficient.
-
-The project includes features like:
-
-Login and User Registration
-Dynamic Home Page
-Selection of Waste Type (Plastic/Metal)
-Integration with SQL for efficient data management
-</p>
-      <a href="https://www.linkedin.com/in/jayant-pachori-44b763275?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="linkedin-btn"><i class="fab fa-linkedin"></i> Vist</a>
+      <p>Successful completion of our project, Smart Waste Segregator GUI - Synergy! This innovative solution combines a seamless user interface...</p>
+      <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn"><i class="fab fa-linkedin"></i> Visit</a>
     </div>
 
     <div class="project-text" id="project3">
       <h3>i-mads project</h3>
-      <p> I recently completed the i-MADS project, which stands for Image Processing using Math & Data Structures. This 6-8 week project is designed for first-year students enrolled in courses such as Linear Algebra & Differential Equations and Data Structures & Algorithms.
- In this integrated project, I explored the application of key linear algebra and data structures concepts in image processing, using industry-standard tools like LabelBox. The project provided hands-on exposure to real-life industry work scenarios, bridging the gap between theoretical knowledge and practical applications 
-
-In addition to being a participant, I also served as a Learning Manager, coordinating activities and facilitating communication between first-year participants, second-year mentors, and industry professionals. This role enhanced my leadership and organizational skills, as I ensured smooth collaboration and effective learning throughout the project.
-The project was mentored by second-year students who had previously completed it, offering valuable guidance and insights. Additionally, we had the opportunity to interact with industry professionals, gaining firsthand knowledge and understanding of industry practices. This experience was an excellent opportunity to apply my coursework in a practical setting and develop skills relevant to the industry.</p>
-      <a href="https://www.linkedin.com/in/jayant-pachori-44b763275?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="linkedin-btn"><i class="fab fa-linkedin"></i> Vist</a>
+      <p>I recently completed the i-MADS project, which stands for Image Processing using Math & Data Structures...</p>
+      <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn"><i class="fab fa-linkedin"></i> Visit</a>
     </div>
 
     <div class="project-text" id="project4">
       <h3>Smart Hackathon tracker:-Database Project</h3>
-      <p>This project is about creating a Virtual Hackathon Tracker that uses a database to store
- and manage all important data. It helps in keeping track of participants, teams, events,
- and scores during a virtual hackathon. The system is built using structured database
- design and SQL to make data handling easy, fast, and reliable.</p>
-      <a href="https://www.linkedin.com/in/jayant-pachori-44b763275?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="linkedin-btn"><i class="fab fa-linkedin"></i> Vist</a>
+      <p>This project is about creating a Virtual Hackathon Tracker that uses a database to store and manage all important data...</p>
+      <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn"><i class="fab fa-linkedin"></i> Visit</a>
     </div>
   </div>
 
@@ -256,13 +316,11 @@ The project was mentored by second-year students who had previously completed it
 <!-- JavaScript -->
 <script>
   function showProject(projectNumber, backgroundImage) {
-    // Hide all text and background
     document.querySelectorAll('.project-text').forEach(text => text.classList.remove('active'));
     const bg = document.getElementById('projectBg');
     bg.classList.add('active');
     bg.style.backgroundImage = `url('${backgroundImage}')`;
 
-    // Show selected text
     const selectedText = document.getElementById('project' + projectNumber);
     selectedText.classList.add('active');
   }
