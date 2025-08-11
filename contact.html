@@ -11,6 +11,7 @@
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
       background-color: #f7f7f7;
+      flex-wrap: wrap;
     }
 
     .sidebar {
@@ -33,6 +34,7 @@
 
     .sidebar h2 {
       margin: 10px 0;
+      text-align: center;
     }
 
     .social-links a {
@@ -114,6 +116,11 @@
       border-radius: 25px;
       cursor: pointer;
       font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .contact-form button:hover {
+      background-color: #008ecc;
     }
 
     iframe {
@@ -123,6 +130,36 @@
       border-radius: 8px;
     }
 
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      body {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+      }
+      .sidebar img {
+        margin-bottom: 10px;
+      }
+      .nav-menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .nav-menu a {
+        padding: 10px 15px;
+        border-left: none;
+        border-top: 2px solid transparent;
+      }
+      .nav-menu a:hover, .nav-menu .active {
+        border-left: none;
+        border-top: 2px solid #00f2fe;
+      }
+    }
   </style>
 </head>
 <body>
@@ -132,7 +169,7 @@
   <img src="images/photo.jpg" alt="Jayant Pachori">
   <h2>Jayant Pachori</h2>
   <div class="social-links">
-    <a href=" https://x.com/JayantPac12218?t=6VhwaVdGdG0zmiBJjIivXQ&s=08 "><i class="fab fa-x-twitter"></i></a>
+    <a href="https://x.com/JayantPac12218?t=6VhwaVdGdG0zmiBJjIivXQ&s=08"><i class="fab fa-x-twitter"></i></a>
     <a href="https://www.facebook.com/share/17yXUtGxQL/"><i class="fab fa-facebook"></i></a>
     <a href="https://www.instagram.com/jp16_official?igsh=OWxubDhxOHh6bWQ4"><i class="fab fa-instagram"></i></a>
     <a href="#"><i class="fab fa-skype"></i></a>
@@ -151,7 +188,6 @@
 <!-- Main -->
 <main class="main">
   <h1>Contact Me</h1>
-
   <div class="contact-container">
     <!-- Contact Info -->
     <div class="contact-info">
@@ -170,10 +206,7 @@
       </div>
       <iframe src="https://maps.google.com/maps?q=Chittorgarh&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
     </div>
-
-   
   </div>
-
 </main>
 
 </body>
