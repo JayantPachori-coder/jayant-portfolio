@@ -1,195 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Skills & Education | Jayant Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skills & Education | Jayant Portfolio</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+  }
+  .sidebar {
+    width: 260px;
+    background-color: #060c16;
+    color: #fff;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .sidebar img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid white;
+    object-fit: cover;
+  }
+  .sidebar h2 {
+    margin-top: 10px;
+    font-size: 1.5rem;
+  }
+  .social-links {
+    margin: 15px 0;
+  }
+  .social-links a {
+    margin: 0 8px;
+    color: #fff;
+    font-size: 1.2rem;
+  }
+  .nav-menu {
+    margin-top: 20px;
+    width: 100%;
+  }
+  .nav-menu a {
+    display: block;
+    color: #ccc;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 16px;
+  }
+  .nav-menu a:hover,
+  .nav-menu .active {
+    background-color: #1f2e4a;
+    border-left: 4px solid #00f2fe;
+    color: #fff;
+  }
+  .main {
+    flex: 1;
+    background: #fff;
+    padding: 40px;
+    overflow-y: auto;
+  }
+  .main h1 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+    border-bottom: 3px solid #00f2fe;
+    display: inline-block;
+    padding-bottom: 5px;
+  }
+
+  /* Skills */
+  .skills-section {
+    margin-bottom: 40px;
+  }
+  .skills-section h2 {
+    margin-bottom: 10px;
+  }
+  .skill {
+    margin-bottom: 15px;
+  }
+  .skill-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  .percentage {
+    color: #333;
+    font-weight: bold;
+  }
+  .progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 15px;
+  }
+  .progress {
+    background-color: #00aaff;
+    height: 100%;
+    transition: width 0.5s ease-in-out;
+  }
+
+  /* Education */
+  .education {
+    margin-top: 40px;
+  }
+  .timeline {
+    border-left: 3px solid #00aaff;
+    padding-left: 20px;
+    margin-top: 20px;
+  }
+  .timeline-item {
+    margin-bottom: 30px;
+    position: relative;
+  }
+  .timeline-item::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    top: 0;
+    width: 15px;
+    height: 15px;
+    background-color: #00aaff;
+    border-radius: 50%;
+  }
+  .timeline-item h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+  }
+  .timeline-item p {
+    margin-bottom: 8px;
+    font-size: 15px;
+    color: #444;
+  }
+
+  /* Courses */
+  .courses {
+    margin-top: 20px;
+  }
+  .courses ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  .courses li {
+    font-size: 16px;
+    color: #555;
+  }
+
+  /* CGPA */
+  .cgpa {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+  }
+  .cgpa span {
+    display: inline-block;
+    margin: 10px;
+    padding: 5px 15px;
+    border-radius: 8px;
+    font-size: 42px;
+    transition: color 0.5s;
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 768px) {
     body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      height: 100vh;
-      flex-direction: row;
-    }
-    /* Sidebar */
-    .sidebar {
-      width: 260px;
-      background-color: #060c16;
-      color: #fff;
-      padding: 30px 20px;
-      display: flex;
       flex-direction: column;
-      align-items: center;
-      transition: transform 0.3s ease-in-out;
+    }
+    .sidebar {
+      width: 100%;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 15px;
     }
     .sidebar img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 3px solid white;
-      object-fit: cover;
+      width: 80px;
+      height: 80px;
+      margin-bottom: 5px;
     }
     .sidebar h2 {
-      margin-top: 10px;
-      font-size: 1.5rem;
-    }
-    .social-links {
-      margin: 15px 0;
-    }
-    .social-links a {
-      margin: 0 8px;
-      color: #fff;
       font-size: 1.2rem;
-    }
-    .nav-menu {
-      margin-top: 20px;
+      margin: 5px 0;
+      text-align: center;
       width: 100%;
     }
-    .nav-menu a {
-      display: block;
-      color: #ccc;
-      text-decoration: none;
-      padding: 10px;
-      font-size: 16px;
-    }
-    .nav-menu a:hover,
-    .nav-menu .active {
-      background-color: #1f2e4a;
-      border-left: 4px solid #00f2fe;
-      color: #fff;
-    }
-
-    /* Main content */
-    .main {
-      flex: 1;
-      background: #fff;
-      padding: 40px;
-      overflow-y: auto;
-    }
-    .main h1 {
-      margin-bottom: 20px;
-      font-size: 2rem;
-      border-bottom: 3px solid #00f2fe;
-      display: inline-block;
-      padding-bottom: 5px;
-    }
-
-    /* Skills */
-    .skills-section {
-      margin-bottom: 40px;
-    }
-    .skills-section h2 {
+    .social-links {
+      width: 100%;
+      text-align: center;
       margin-bottom: 10px;
     }
-    .skill {
-      margin-bottom: 15px;
-    }
-    .skill-header {
+    .nav-menu {
       display: flex;
-      justify-content: space-between;
-      font-weight: bold;
-      margin-bottom: 5px;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 5px;
     }
-    .percentage {
-      color: #333;
-      font-weight: bold;
+    .nav-menu a {
+      font-size: 14px;
+      padding: 6px 8px;
     }
-    .progress-bar {
-      background-color: #e0e0e0;
-      border-radius: 20px;
-      overflow: hidden;
-      height: 15px;
+    .main {
+      padding: 20px;
     }
-    .progress {
-      background-color: #00aaff;
-      height: 100%;
-      transition: width 0.5s ease-in-out;
+    .main h1 {
+      font-size: 1.5rem;
     }
-
-    /* Education */
-    .education {
-      margin-top: 40px;
-    }
-    .timeline {
-      border-left: 3px solid #00aaff;
-      padding-left: 20px;
-      margin-top: 20px;
-    }
-    .timeline-item {
-      margin-bottom: 30px;
-      position: relative;
-    }
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: -10px;
-      top: 0;
-      width: 15px;
-      height: 15px;
-      background-color: #00aaff;
-      border-radius: 50%;
-    }
-    .timeline-item h3 {
-      font-size: 1.2rem;
-      margin-bottom: 5px;
-    }
-    .timeline-item p {
-      margin-bottom: 8px;
-      font-size: 15px;
-      color: #444;
-    }
-
-    /* Courses */
-    .courses {
-      margin-top: 20px;
-    }
-    .courses ul {
-      list-style-type: disc;
-      margin-left: 20px;
-    }
-    .courses li {
-      font-size: 16px;
-      color: #555;
-    }
-
-    /* CGPA */
     .cgpa {
-      margin-top: 50px;
-      text-align: center;
-      font-size: 40px;
-      font-weight: bold;
+      font-size: 28px;
     }
     .cgpa span {
-      display: inline-block;
-      margin: 10px;
-      padding: 5px 15px;
-      border-radius: 8px;
-      font-size: 42px;
-      transition: color 0.5s;
+      font-size: 30px;
     }
-
-    /* Mobile layout */
-    @media (max-width: 768px) {
-      body {
-        flex-direction: column;
-      }
-      .sidebar {
-        width: 100%;
-        transform: translateY(0);
-      }
-      .main {
-        padding: 20px;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
 
 <aside class="sidebar">
-  <img src="images/photo.jpg" alt="Jayant Pachori" />
+  <img src="images/photo.jpg" alt="Jayant Pachori">
   <h2>Jayant Pachori</h2>
   <div class="social-links">
     <a href="https://x.com/JayantPac12218"><i class="fab fa-x-twitter"></i></a>
