@@ -3,188 +3,278 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About | Jayant Pachori</title>
+  <title>About | Jayant Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <link rel="stylesheet" href="style.css"> <!-- If you keep styles in separate CSS -->
   <style>
-    /* Copy-paste the same CSS from your home page */
-    body, html {
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      height: 100%;
+    }
+
+    body {
       font-family: 'Segoe UI', sans-serif;
-      box-sizing: border-box;
-    }
-    .container {
       display: flex;
+      min-height: 100vh;
       flex-direction: row;
-      height: 100vh;
-      flex-wrap: wrap;
     }
+
+    /* Sidebar */
     .sidebar {
       width: 260px;
-      background: #060c16;
+      background-color: #060c16;
       color: #fff;
       padding: 30px 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      flex-shrink: 0;
     }
+
     .sidebar img {
-      width: 100px;
-      height: 100px;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
-      object-fit: cover;
       border: 3px solid white;
+      object-fit: cover;
     }
+
     .sidebar h2 {
-      margin: 15px 0 10px;
-      text-align: center;
+      margin-top: 10px;
       font-size: 1.5rem;
-    }
-    .social-links {
       text-align: center;
     }
-    .social-links a {
-      color: white;
-      margin: 0 6px;
-      font-size: 1.2rem;
-      text-decoration: none;
+
+    .social-links {
+      margin: 15px 0;
     }
+
+    .social-links a {
+      margin: 0 8px;
+      color: #fff;
+      font-size: 1.2rem;
+    }
+
     .nav-menu {
-      margin-top: 30px;
+      margin-top: 20px;
       width: 100%;
     }
+
     .nav-menu a {
       display: block;
-      padding: 12px 10px;
-      color: white;
+      color: #ccc;
       text-decoration: none;
-      font-size: 1rem;
+      padding: 10px;
+      font-size: 16px;
     }
-    .nav-menu a:hover,
-    .nav-menu .active {
-      background: #1f2e4a;
+
+    .nav-menu a:hover, .nav-menu .active {
+      background-color: #1f2e4a;
       border-left: 4px solid #00f2fe;
+      color: #fff;
     }
-    .main-section {
+
+    /* Main content */
+    .main {
       flex: 1;
-      background: url('images/about-bg.jpg') no-repeat center center/cover;
-      display: flex;
-      align-items: flex-start;
-      justify-content: flex-start;
+      background: #fff;
       padding: 40px;
-      color: white;
       overflow-y: auto;
     }
+
+    .main h1 {
+      margin-bottom: 10px;
+      font-size: 2rem;
+      border-bottom: 3px solid #00f2fe;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
     .about-content {
-      max-width: 800px;
-      background: rgba(0,0,0,0.6);
-      padding: 20px;
+      display: flex;
+      gap: 40px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+    }
+
+    .about-img {
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .about-img img {
+      width: 100%;
+      max-width: 400px;
       border-radius: 10px;
     }
-    .about-content h1 {
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
+
+    .about-info {
+      flex: 2;
     }
-    .about-content p {
-      font-size: 1.1rem;
-      line-height: 1.6;
+
+    .about-info h2 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
     }
-    @media screen and (max-width: 768px) {
-      .container {
+
+    .about-info p {
+      margin-bottom: 15px;
+      font-size: 15px;
+      color: #444;
+    }
+
+    .info-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .info-box {
+      flex: 1 1 45%;
+      font-size: 14px;
+    }
+
+    .info-box strong {
+      color: #000;
+    }
+
+    .info-box i {
+      color: #00f2fe;
+      margin-right: 5px;
+    }
+
+    .extra-description {
+      margin-top: 40px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .extra-description p {
+      margin-bottom: 15px;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      body {
         flex-direction: column;
       }
+
       .sidebar {
         width: 100%;
         flex-direction: row;
-        justify-content: space-between;
-        padding: 20px 10px;
         flex-wrap: wrap;
-      }
-      .sidebar img {
-        width: 70px;
-        height: 70px;
-        margin-bottom: 10px;
-      }
-      .sidebar h2 {
-        font-size: 1.2rem;
-        margin: 0;
-      }
-      .social-links {
-        width: 100%;
-        margin-top: 10px;
+        justify-content: center;
         text-align: center;
       }
+
+      .sidebar img {
+        margin-bottom: 10px;
+      }
+
+      .sidebar h2 {
+        width: 100%;
+      }
+
+      .social-links {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+
       .nav-menu {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        width: 100%;
-        margin-top: 15px;
       }
+
       .nav-menu a {
         padding: 8px 12px;
-        font-size: 0.9rem;
+        border-left: none;
       }
-      .main-section {
+
+      .main {
         padding: 20px;
-        justify-content: center;
+      }
+
+      .about-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .about-info {
         text-align: center;
       }
-      .about-content h1 {
-        font-size: 1.8rem;
+
+      .info-grid {
+        flex-direction: column;
+        align-items: center;
       }
-      .about-content p {
-        font-size: 1rem;
+
+      .info-box {
+        flex: 1 1 100%;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <img src="images/photo.jpg" alt="Jayant Pachori">
-      <h2>Jayant Pachori</h2>
-      <div class="social-links">
-        <a href="https://x.com/JayantPac12218?t=6VhwaVdGdG0zmiBJjIivXQ&s=08"><i class="fab fa-x-twitter"></i></a>
-        <a href="https://www.facebook.com/profile.php?id=100072865898739"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.instagram.com/jp16_official?igsh=OWxubDhxOHh6bWQ4"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-skype"></i></a>
-        <a href="https://www.linkedin.com/in/jayant-pachori-44b763275"><i class="fab fa-linkedin"></i></a>
-      </div>
-      <nav class="nav-menu">
-        <a href="index.html"><i class="fas fa-home"></i> Home</a>
-        <a href="#" class="active"><i class="fas fa-user"></i> About</a>
-        <a href="skills.html"><i class="fas fa-file-alt"></i> Skills & Education</a>
-        <a href="projects.html"><i class="fas fa-image"></i> Projects</a>
-        <a href="#"><i class="fas fa-cogs"></i> Services</a>
-        <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
-      </nav>
-    </aside>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <img src="images/photo.jpg" alt="Jayant Pachori">
+    <h2>Jayant Pachori</h2>
+    <div class="social-links">
+      <a href=" https://x.com/JayantPac12218?t=6VhwaVdGdG0zmiBJjIivXQ&s=08 "><i class="fab fa-x-twitter"></i></a>
+      <a href="https://www.facebook.com/profile.php?id=100072865898739&rdid=jRatbUMx0b7mpote#"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/jp16_official?igsh=OWxubDhxOHh6bWQ4"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-skype"></i></a>
+      <a href="https://www.linkedin.com/in/jayant-pachori-44b763275"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <nav class="nav-menu">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="about.html" class="active"><i class="fas fa-user"></i> About</a>
+      <a href="skills.html"><i class="fas fa-file-alt"></i> Skills & Education</a>
+      <a href="projects.html"><i class="fas fa-image"></i> Projects</a>
+      <a href="#"><i class="fas fa-cogs"></i> Services</a>
+      <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+    </nav>
+  </aside>
 
-    <!-- Main Content -->
-    <main class="main-section">
-      <div class="about-content">
-        <h1>About Me</h1>
-        <p>
-          Hello! I’m Jayant Pachori, a passionate Full Stack Developer and Data Science Enthusiast.
-          I enjoy building applications that are not only functional but also visually appealing.
-          With a background in Python, Java, SQL, and Machine Learning, I love working on projects
-          that merge creativity and technology.
-        </p>
-        <p>
-          In addition to coding, I have experience in UI/UX design and have completed several projects
-          involving responsive web design, mobile app development, and intelligent data solutions.
-        </p>
-        <p>
-          My goal is to continuously learn, improve, and contribute to innovative projects that
-          make a difference.
-        </p>
+  <!-- Main Content -->
+  <main class="main">
+    <h1>About</h1>
+    <p>Hi, I’m Jayant Pachori, a Computer Science student at NIIT University. I enjoy building websites and working on tech projects. I’m interested in both full stack development and data science.</p>
+
+    <div class="about-content">
+      <div class="about-img">
+        <img src="images/front.jpg" alt="Jayant Profile">
       </div>
-    </main>
-  </div>
+      <div class="about-info">
+        <h2>Full Stack Developer & Data Scientist</h2>
+        <p><em>Focused on building real-world solutions using machine learning, web technologies, and system design.</em></p>
+        <div class="info-grid">
+          <div class="info-box"><i class="fas fa-chevron-right"></i> <strong>Birthday:</strong> 16th December 2004</div>
+          <div class="info-box"><i class="fas fa-chevron-right"></i> <strong>Age:</strong> 21</div>
+          <div class="info-box"><i class="fas fa-chevron-right"></i> <strong>Website:</strong> www.jayantportfolio.com</div>
+          <div class="info-box"><i class="fas fa-chevron-right"></i> <strong>Degree:</strong> B.Tech CSE</div>
+          <div class="info-box"><i class="fas fa-chevron-right"></i> <strong>Phone:</strong> +91 7726078315</div>
+          <div class="info-box"><i class="fas fa-chevron-right"></i> <strong>Email:</strong> jayantpachori16@gmail.com</div>
+          <div class="info-box"><i class="fas fa-chevron-right"></i> <strong>City:</strong> Chittorgarh, India</div>
+          <div class="info-box"><i class="fas fa-chevron-right"></i> <strong>Freelance:</strong> Available</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="extra-description">
+      <p>
+        Over the past few semesters, I've actively engaged in building real-world projects—from IoT-based systems like <strong>Smart Waste Segregators</strong> to <strong>Hackathon Tracking Applications</strong> using SQL and Java. These experiences have helped me grow not only as a coder but also as a problem solver and team collaborator.
+      </p>
+      <p>
+        I'm comfortable working with both front-end and back-end technologies and I love combining logic with creativity to build engaging digital experiences. In parallel, my interest in data science fuels my exploration into <strong>Python</strong>, <strong>machine learning</strong>.
+      </p>
+      <p>
+        When I'm not coding, I'm usually learning something new or contributing to university initiatives. I’m also open to freelance opportunities and collaborative tech projects.
+      </p>
+    </div>
+  </main>
 </body>
 </html>
