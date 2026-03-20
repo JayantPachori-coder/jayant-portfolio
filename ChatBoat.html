@@ -1,0 +1,212 @@
+<!-- ===== CHATBOT ===== -->
+<div id="chatbot-container">
+
+  <!-- Toggle -->
+  <div id="chat-toggle">💬</div>
+
+  <!-- Chat Box -->
+  <div id="chatbot-box">
+
+    <!-- Header -->
+    <div id="chat-header">
+      <div>
+        <strong>Jayant</strong><br>
+        <small>Online</small>
+      </div>
+      <span onclick="toggleChat()">✖</span>
+    </div>
+
+    <!-- Chat Body -->
+    <div id="chat-body"></div>
+
+    <!-- Input -->
+    <div id="chat-input-area">
+      <input type="text" id="chat-input" placeholder="Type a message..." />
+    </div>
+
+  </div>
+</div>
+
+<style>
+
+/* Container */
+#chatbot-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  font-family: 'Segoe UI';
+}
+
+/* Toggle button */
+#chat-toggle {
+  background: #25D366;
+  color: white;
+  padding: 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Chat Box */
+#chatbot-box {
+  width: 320px;
+  height: 450px;
+  display: none;
+  flex-direction: column;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  background: #ece5dd;
+}
+
+/* Header (WhatsApp style) */
+#chat-header {
+  background: #075E54;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Chat body with background image */
+#chat-body {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background-image: url('https://i.imgur.com/5v5Y6cD.png');
+  background-size: cover;
+}
+
+/* Messages */
+.message {
+  margin: 8px 0;
+  max-width: 75%;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+/* User message */
+.user {
+  background: #dcf8c6;
+  margin-left: auto;
+}
+
+/* Bot message */
+.bot {
+  background: white;
+  margin-right: auto;
+}
+
+/* Input */
+#chat-input-area {
+  display: flex;
+  border-top: 1px solid #ccc;
+}
+
+#chat-input {
+  flex: 1;
+  border: none;
+  padding: 10px;
+}
+
+/* Mobile */
+@media(max-width:600px){
+  #chatbot-box {
+    width: 90vw;
+    height: 70vh;
+  }
+}
+
+</style>
+
+<script>
+
+const toggleBtn = document.getElementById("chat-toggle");
+const box = document.getElementById("chatbot-box");
+const input = document.getElementById("chat-input");
+const body = document.getElementById("chat-body");
+
+toggleBtn.onclick = toggleChat;
+
+function toggleChat() {
+  box.style.display = box.style.display === "flex" ? "none" : "flex";
+}
+
+/* Send message */
+input.addEventListener("keypress", function(e) {
+  if (e.key === "Enter") {
+    let msg = input.value.toLowerCase();
+
+    addMessage(msg, "user");
+
+    let reply = getReply(msg);
+
+    setTimeout(() => addMessage(reply, "bot"), 500);
+
+    input.value = "";
+  }
+});
+
+/* Add message */
+function addMessage(text, type) {
+  let div = document.createElement("div");
+  div.classList.add("message", type);
+  div.innerHTML = text;
+  body.appendChild(div);
+  body.scrollTop = body.scrollHeight;
+}
+
+/* Smart Replies */
+function getReply(msg) {
+
+  /* Navigation */
+  if (msg.includes("home")) {
+    window.location.href = "index.html";
+    return "Opening Home Page...";
+  }
+
+  if (msg.includes("about")) {
+    window.location.href = "about.html";
+    return "Opening About Page...";
+  }
+
+  if (msg.includes("skills")) {
+    window.location.href = "skills.html";
+    return "Opening Skills Page...";
+  }
+
+  if (msg.includes("project")) {
+    window.location.href = "projects.html";
+    return "Opening Projects Page...";
+  }
+
+  if (msg.includes("contact")) {
+    window.location.href = "contact.html";
+    return "Opening Contact Page...";
+  }
+
+  /* Project Info */
+  if (msg.includes("iot")) {
+    return "I built Environment Monitoring System & Smart Waste Segregator 🚀";
+  }
+
+  if (msg.includes("ai") || msg.includes("ml")) {
+    return "I worked on Smart Scheduler & CO₂ prediction using ML 🤖";
+  }
+
+  if (msg.includes("dbms")) {
+    return "Check Virtual Hackathon Tracker 📊";
+  }
+
+  /* LinkedIn */
+  if (msg.includes("linkedin")) {
+    return `Open my LinkedIn 👉 <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank">Click Here</a>`;
+  }
+
+  return "Try: Projects, Skills, IoT, AI, LinkedIn 😊";
+}
+
+</script>
