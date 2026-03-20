@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects | Jayant Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     body {
       display: flex;
@@ -14,7 +15,6 @@
       flex-wrap: wrap;
     }
 
-    /* Sidebar */
     .sidebar {
       width: 250px;
       background-color: #060c16;
@@ -23,7 +23,6 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      flex-shrink: 0;
     }
 
     .sidebar img {
@@ -62,7 +61,6 @@
       color: #fff;
     }
 
-    /* Main content */
     .main {
       flex: 1;
       display: flex;
@@ -90,7 +88,6 @@
       width: 100%;
       height: 140px;
       object-fit: cover;
-      display: block;
     }
 
     .project-number {
@@ -102,10 +99,8 @@
       font-weight: bold;
       padding: 2px 6px;
       border-radius: 50%;
-      font-size: 14px;
     }
 
-    /* Project details */
     .project-details {
       flex: 1;
       position: relative;
@@ -117,35 +112,20 @@
 
     .project-background {
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
+      inset: 0;
       background-size: cover;
       background-position: center;
       filter: blur(6px) brightness(0.7);
-      z-index: 1;
       display: none;
     }
 
     .project-text {
       position: relative;
-      z-index: 2;
       padding: 30px;
       margin: 40px;
       background: #fff;
       border-radius: 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       display: none;
-      font-size: 15px;
-      color: #333;
-    }
-
-    .project-text::after {
-      content: "";
-      position: absolute;
-      bottom: -20px;
-      left: 40px;
-      border-width: 20px 20px 0;
-      border-style: solid;
-      border-color: #fff transparent transparent transparent;
     }
 
     .project-text.active,
@@ -163,167 +143,164 @@
       text-decoration: none;
     }
 
-    .linkedin-btn:hover {
-      background: #005f86;
-    }
-
-    /* Responsive */
     @media (max-width: 768px) {
-      body {
-        flex-direction: column;
-      }
-
-      .sidebar {
-        width: 100%;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .nav-menu {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .nav-menu a {
-        border-left: none;
-        padding: 8px;
-        font-size: 0.9rem;
-      }
-
-      .main {
-        flex-direction: column;
-        padding: 15px;
-      }
-
-      .project-list {
-        width: 100%;
-        flex-direction: row;
-        overflow-x: auto;
-        gap: 10px;
-      }
-
-      .project-item img {
-        height: 100px;
-      }
-
-      .project-details {
-        margin-top: 20px;
-      }
-
-      .project-text {
-        margin: 20px;
-        padding: 20px;
-        font-size: 14px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .sidebar img {
-        width: 80px;
-        height: 80px;
-      }
-
-      .project-text {
-        padding: 15px;
-        margin: 10px;
-        font-size: 13px;
-      }
+      body { flex-direction: column; }
+      .sidebar { width: 100%; flex-direction: row; flex-wrap: wrap; justify-content: center; }
+      .main { flex-direction: column; padding: 15px; }
+      .project-list { flex-direction: row; overflow-x: auto; width: 100%; }
     }
   </style>
 </head>
+
 <body>
 
 <!-- Sidebar -->
 <aside class="sidebar">
-  <img src="images/photo.jpg" alt="Jayant Pachori">
+  <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12" alt="profile">
   <h2>Jayant Pachori</h2>
+
   <div class="social-links">
     <a href="#"><i class="fab fa-x-twitter"></i></a>
     <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="https://www.instagram.com/jp16_official?igsh=OWxubDhxOHh6bWQ4"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-skype"></i></a>
+    <a href="https://www.instagram.com/jp16_official"><i class="fab fa-instagram"></i></a>
     <a href="https://www.linkedin.com/in/jayant-pachori-44b763275"><i class="fab fa-linkedin"></i></a>
   </div>
+
   <nav class="nav-menu">
-    <a href="index.html"><i class="fas fa-home"></i> Home</a>
-    <a href="about.html"><i class="fas fa-user"></i> About</a>
-    <a href="skills.html"><i class="fas fa-file-alt"></i> Skills & Education</a>
-    <a href="projects.html" class="active"><i class="fas fa-image"></i> Projects</a>
-    <a href="#"><i class="fas fa-cogs"></i> Services</a>
-    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="skills.html">Skills</a>
+    <a href="projects.html" class="active">Projects</a>
   </nav>
 </aside>
 
 <!-- Main -->
 <main class="main">
 
-  <!-- Project Images List -->
-  <div class="project-list">
-    <div class="project-item" onclick="showProject(1, 'images/dustbin.jpg')">
-      <span class="project-number">1</span>
-      <img src="images/ram.jpg" alt="Project 1">
-    </div>
+<!-- Project List -->
+<div class="project-list">
 
-    <div class="project-item" onclick="showProject(2, 'images/gui_baseeee.jpg')">
-      <span class="project-number">2</span>
-      <img src="images/dd.png" alt="Project 2">
-    </div>
-
-    <div class="project-item" onclick="showProject(3, 'images/bgm.png')">
-      <span class="project-number">3</span>
-      <img src="images/h.jpg" alt="Project 3">
-    </div>
-
-    <div class="project-item" onclick="showProject(4, 'images/er.jpg')">
-      <span class="project-number">4</span>
-      <img src="images/dbms.jpg" alt="Project 4">
-    </div>
+  <div class="project-item" onclick="showProject(1,'https://images.unsplash.com/photo-1581091870627-3c2f3aef4f9b')">
+    <span class="project-number">1</span>
+    <img src="https://images.unsplash.com/photo-1581091870627-3c2f3aef4f9b">
   </div>
 
-  <!-- Project Details -->
-  <div class="project-details">
-    <div class="project-background" id="projectBg"></div>
-
-    <div class="project-text" id="project1">
-      <h3>Smart Waste Segregator</h3>
-      <p>This project creatively designs a working prototype using various electronic components and prepares a research paper side by side...</p>
-      <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn"><i class="fab fa-linkedin"></i> Visit</a>
-    </div>
-
-    <div class="project-text" id="project2">
-      <h3>Smart Waste Segregator GUI</h3>
-      <p>Successful completion of our project, Smart Waste Segregator GUI - Synergy! This innovative solution combines a seamless user interface...</p>
-      <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn"><i class="fab fa-linkedin"></i> Visit</a>
-    </div>
-
-    <div class="project-text" id="project3">
-      <h3>i-mads project</h3>
-      <p>I recently completed the i-MADS project, which stands for Image Processing using Math & Data Structures...</p>
-      <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn"><i class="fab fa-linkedin"></i> Visit</a>
-    </div>
-
-    <div class="project-text" id="project4">
-      <h3>Smart Hackathon tracker:-Database Project</h3>
-      <p>This project is about creating a Virtual Hackathon Tracker that uses a database to store and manage all important data...</p>
-      <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn"><i class="fab fa-linkedin"></i> Visit</a>
-    </div>
+  <div class="project-item" onclick="showProject(2,'https://images.unsplash.com/photo-1555066931-4365d14bab8c')">
+    <span class="project-number">2</span>
+    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c">
   </div>
+
+  <div class="project-item" onclick="showProject(3,'https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d')">
+    <span class="project-number">3</span>
+    <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d">
+  </div>
+
+  <div class="project-item" onclick="showProject(4,'https://images.unsplash.com/photo-1551288049-bebda4e38f71')">
+    <span class="project-number">4</span>
+    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71">
+  </div>
+
+  <div class="project-item" onclick="showProject(5,'https://images.unsplash.com/photo-1509395176047-4a66953fd231')">
+    <span class="project-number">5</span>
+    <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231">
+  </div>
+
+  <div class="project-item" onclick="showProject(6,'https://images.unsplash.com/photo-1550751827-4bd374c3f58b')">
+    <span class="project-number">6</span>
+    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b">
+  </div>
+
+  <div class="project-item" onclick="showProject(7,'https://images.unsplash.com/photo-1526378722484-cc5c5a7b6f2d')">
+    <span class="project-number">7</span>
+    <img src="https://images.unsplash.com/photo-1526378722484-cc5c5a7b6f2d">
+  </div>
+
+  <div class="project-item" onclick="showProject(8,'https://images.unsplash.com/photo-1518770660439-4636190af475')">
+    <span class="project-number">8</span>
+    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
+  </div>
+
+</div>
+
+<!-- Details -->
+<div class="project-details">
+  <div class="project-background" id="projectBg"></div>
+
+  <div class="project-text" id="project1">
+  <h3>Smart Waste Segregator</h3>
+  <p>IoT system using Arduino & sensors for real-time waste monitoring.</p>
+  <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn">
+    <i class="fab fa-linkedin"></i> View Project
+  </a>
+</div>
+
+<div class="project-text" id="project2">
+  <h3>Waste Segregator GUI</h3>
+  <p>JavaFX + MySQL app for managing waste data.</p>
+  <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn">
+    <i class="fab fa-linkedin"></i> View Project
+  </a>
+</div>
+
+<div class="project-text" id="project3">
+  <h3>i-MADS</h3>
+  <p>Image processing using linear algebra & DSA.</p>
+  <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn">
+    <i class="fab fa-linkedin"></i> View Project
+  </a>
+</div>
+
+<div class="project-text" id="project4">
+  <h3>Hackathon Tracker</h3>
+  <p>Full DBMS system for hackathon management.</p>
+  <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn">
+    <i class="fab fa-linkedin"></i> View Project
+  </a>
+</div>
+
+<div class="project-text" id="project5">
+  <h3>Environment Monitoring System</h3>
+  <p>CO₂ prediction using IoT + deep learning.</p>
+  <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn">
+    <i class="fab fa-linkedin"></i> View Project
+  </a>
+</div>
+
+<div class="project-text" id="project6">
+  <h3>Secure IoT Monitoring</h3>
+  <p>Secure communication using cryptography.</p>
+  <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn">
+    <i class="fab fa-linkedin"></i> View Project
+  </a>
+</div>
+
+<div class="project-text" id="project7">
+  <h3>Smart Scheduler</h3>
+  <p>AI-based scheduling system.</p>
+  <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn">
+    <i class="fab fa-linkedin"></i> View Project
+  </a>
+</div>
+
+<div class="project-text" id="project8">
+  <h3>Big Data Research</h3>
+  <p>Study of Hadoop ecosystem tools.</p>
+  <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn">
+    <i class="fab fa-linkedin"></i> View Project
+  </a>
+</div>
+
+</div>
 
 </main>
 
-<!-- JavaScript -->
 <script>
-  function showProject(projectNumber, backgroundImage) {
-    document.querySelectorAll('.project-text').forEach(text => text.classList.remove('active'));
-    const bg = document.getElementById('projectBg');
-    bg.classList.add('active');
-    bg.style.backgroundImage = `url('${backgroundImage}')`;
-
-    const selectedText = document.getElementById('project' + projectNumber);
-    selectedText.classList.add('active');
-  }
+function showProject(num, img) {
+  document.querySelectorAll('.project-text').forEach(e => e.classList.remove('active'));
+  document.getElementById('projectBg').style.backgroundImage = `url(${img})`;
+  document.getElementById('projectBg').classList.add('active');
+  document.getElementById('project'+num).classList.add('active');
+}
 </script>
 
 </body>
