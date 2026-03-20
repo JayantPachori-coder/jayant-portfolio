@@ -143,7 +143,7 @@
       text-decoration: none;
     }
 
-    @media (max-width: 768px) {
+   @media (max-width: 768px) {
 
   body {
     flex-direction: column;
@@ -159,9 +159,8 @@
   }
 
   .sidebar img {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 10px;
+    width: 70px;
+    height: 70px;
   }
 
   .sidebar h2 {
@@ -169,12 +168,6 @@
     font-size: 1.2rem;
   }
 
-  .social-links {
-    width: 100%;
-    margin: 10px 0;
-  }
-
-  /* Navbar */
   .nav-menu {
     display: flex;
     flex-wrap: wrap;
@@ -183,46 +176,44 @@
 
   .nav-menu a {
     border-left: none;
-    padding: 8px 12px;
-    font-size: 14px;
+    padding: 8px 10px;
+    font-size: 13px;
   }
 
   /* Main */
   .main {
     flex-direction: column;
-    padding: 15px;
+    padding: 10px;
   }
 
-  /* Project list scroll fix */
+  /* 🔥 GRID FIX (3 per row) */
   .project-list {
     width: 100%;
-    flex-direction: row;
-    overflow-x: auto;
-    gap: 10px;
-    padding-bottom: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
   }
 
   .project-item {
-    min-width: 120px;
-    flex-shrink: 0;
-  }
-
-  .project-item img {
-    height: 100px;
-  }
-
-  /* Project details */
-  .project-details {
     width: 100%;
   }
 
+  .project-item img {
+    height: 80px;
+  }
+
+  .project-number {
+    font-size: 10px;
+    padding: 2px 5px;
+  }
+
+  /* Project details */
   .project-text {
     margin: 10px;
-    padding: 15px;
-    font-size: 14px;
+    padding: 12px;
+    font-size: 13px;
   }
 }
-  </style>
 </head>
 
 <body>
