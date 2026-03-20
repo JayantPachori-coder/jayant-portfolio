@@ -143,77 +143,79 @@
       text-decoration: none;
     }
 
-   @media (max-width: 768px) {
+    /* 🔥 MOBILE FIX */
+    @media (max-width: 768px) {
 
-  body {
-    flex-direction: column;
-  }
+      body {
+        flex-direction: column;
+      }
 
-  /* Sidebar */
-  .sidebar {
-    width: 100%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
-  }
+      .sidebar {
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+      }
 
-  .sidebar img {
-    width: 70px;
-    height: 70px;
-  }
+      .sidebar img {
+        width: 70px;
+        height: 70px;
+      }
 
-  .sidebar h2 {
-    width: 100%;
-    font-size: 1.2rem;
-  }
+      .sidebar h2 {
+        width: 100%;
+        font-size: 1.2rem;
+      }
 
-  .nav-menu {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+      .nav-menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
 
-  .nav-menu a {
-    border-left: none;
-    padding: 8px 10px;
-    font-size: 13px;
-  }
+      .nav-menu a {
+        border-left: none;
+        padding: 8px 10px;
+        font-size: 13px;
+      }
 
-  /* Main */
-  .main {
-    flex-direction: column;
-    padding: 10px;
-  }
+      .main {
+        flex-direction: column;
+        padding: 10px;
+      }
 
-  /* 🔥 GRID FIX (3 per row) */
-  .project-list {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 8px;
-  }
+      /* GRID 3 PER ROW */
+      .project-list {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+      }
 
-  .project-item {
-    width: 100%;
-  }
+      .project-item img {
+        height: 80px;
+      }
 
-  .project-item img {
-    height: 80px;
-  }
+      .project-number {
+        font-size: 10px;
+      }
 
-  .project-number {
-    font-size: 10px;
-    padding: 2px 5px;
-  }
+      .project-text {
+        margin: 10px;
+        padding: 12px;
+        font-size: 13px;
+      }
+    }
 
-  /* Project details */
-  .project-text {
-    margin: 10px;
-    padding: 12px;
-    font-size: 13px;
-  }
-}
+    /* SMALL PHONES */
+    @media (max-width: 480px) {
+      .project-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+  </style>
 </head>
 
 <body>
@@ -286,73 +288,49 @@
 
 </div>
 
-<!-- Details -->
+<!-- Project Details -->
 <div class="project-details">
   <div class="project-background" id="projectBg"></div>
 
   <div class="project-text" id="project1">
-  <h3>Smart Waste Segregator</h3>
-  <p>IoT system using Arduino & sensors for real-time waste monitoring.</p>
-  <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn">
-    <i class="fab fa-linkedin"></i> View Project
-  </a>
-</div>
+    <h3>Smart Waste Segregator</h3>
+    <p>IoT system using Arduino & sensors for real-time waste monitoring.</p>
+  </div>
 
-<div class="project-text" id="project2">
-  <h3>Waste Segregator GUI</h3>
-  <p>JavaFX + MySQL app for managing waste data.</p>
-  <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn">
-    <i class="fab fa-linkedin"></i> View Project
-  </a>
-</div>
+  <div class="project-text" id="project2">
+    <h3>Waste Segregator GUI</h3>
+    <p>JavaFX + MySQL app for managing waste data.</p>
+  </div>
 
-<div class="project-text" id="project3">
-  <h3>i-MADS</h3>
-  <p>Image processing using linear algebra & DSA.</p>
-  <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn">
-    <i class="fab fa-linkedin"></i> View Project
-  </a>
-</div>
+  <div class="project-text" id="project3">
+    <h3>i-MADS</h3>
+    <p>Image processing using linear algebra & DSA.</p>
+  </div>
 
-<div class="project-text" id="project4">
-  <h3>Hackathon Tracker</h3>
-  <p>Full DBMS system for hackathon management.</p>
-  <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn">
-    <i class="fab fa-linkedin"></i> View Project
-  </a>
-</div>
+  <div class="project-text" id="project4">
+    <h3>Hackathon Tracker</h3>
+    <p>Full DBMS system for hackathon management.</p>
+  </div>
 
-<div class="project-text" id="project5">
-  <h3>Environment Monitoring System</h3>
-  <p>CO₂ prediction using IoT + deep learning.</p>
-  <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn">
-    <i class="fab fa-linkedin"></i> View Project
-  </a>
-</div>
+  <div class="project-text" id="project5">
+    <h3>Environment Monitoring System</h3>
+    <p>CO₂ prediction using IoT + deep learning.</p>
+  </div>
 
-<div class="project-text" id="project6">
-  <h3>Secure IoT Monitoring</h3>
-  <p>Secure communication using cryptography.</p>
-  <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn">
-    <i class="fab fa-linkedin"></i> View Project
-  </a>
-</div>
+  <div class="project-text" id="project6">
+    <h3>Secure IoT Monitoring</h3>
+    <p>Secure communication using cryptography.</p>
+  </div>
 
-<div class="project-text" id="project7">
-  <h3>Smart Scheduler</h3>
-  <p>AI-based scheduling system.</p>
-  <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn">
-    <i class="fab fa-linkedin"></i> View Project
-  </a>
-</div>
+  <div class="project-text" id="project7">
+    <h3>Smart Scheduler</h3>
+    <p>AI-based scheduling system.</p>
+  </div>
 
-<div class="project-text" id="project8">
-  <h3>Big Data Research</h3>
-  <p>Study of Hadoop ecosystem tools.</p>
-  <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn">
-    <i class="fab fa-linkedin"></i> View Project
-  </a>
-</div>
+  <div class="project-text" id="project8">
+    <h3>Big Data Research</h3>
+    <p>Study of Hadoop ecosystem tools.</p>
+  </div>
 
 </div>
 
@@ -361,8 +339,9 @@
 <script>
 function showProject(num, img) {
   document.querySelectorAll('.project-text').forEach(e => e.classList.remove('active'));
-  document.getElementById('projectBg').style.backgroundImage = `url(${img})`;
-  document.getElementById('projectBg').classList.add('active');
+  const bg = document.getElementById('projectBg');
+  bg.style.backgroundImage = `url(${img})`;
+  bg.classList.add('active');
   document.getElementById('project'+num).classList.add('active');
 }
 </script>
