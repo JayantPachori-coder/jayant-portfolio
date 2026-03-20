@@ -1,236 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects | Jayant Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects | Jayant Portfolio</title>
 
-  <style>
-    body {
-      display: flex;
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f7f7f7;
-      flex-wrap: wrap;
-    }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    .sidebar {
-      width: 250px;
-      background-color: #060c16;
-      color: #fff;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+<style>
 
-    .sidebar img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 3px solid white;
-      object-fit: cover;
-    }
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+}
 
-    .sidebar h2 {
-      margin: 10px 0;
-    }
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: #060c16;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
 
-    .social-links a {
-      color: #fff;
-      margin: 0 6px;
-      font-size: 1.2rem;
-    }
+.sidebar img {
+  width: 100px;
+  border-radius: 50%;
+}
 
-    .nav-menu {
-      margin-top: 20px;
-      width: 100%;
-    }
+.nav-menu a {
+  display: block;
+  padding: 10px;
+  color: #ccc;
+  text-decoration: none;
+}
 
-    .nav-menu a {
-      display: block;
-      padding: 10px;
-      color: #ccc;
-      text-decoration: none;
-    }
+.nav-menu a:hover,
+.nav-menu .active {
+  background: #1f2e4a;
+  color: white;
+}
 
-    .nav-menu a:hover, .nav-menu .active {
-      background-color: #1f2e4a;
-      border-left: 4px solid #00f2fe;
-      color: #fff;
-    }
+/* Main */
+.main {
+  flex: 1;
+  padding: 30px;
+  background: #f7f7f7;
+}
 
-    .main {
-      flex: 1;
-      display: flex;
-      padding: 30px;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
+/* Grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
 
-    .project-list {
-      width: 200px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
+/* Card */
+.project-card {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-    .project-item {
-      cursor: pointer;
-      position: relative;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
+.project-card:hover {
+  transform: translateY(-5px);
+}
 
-    .project-item img {
-      width: 100%;
-      height: 140px;
-      object-fit: cover;
-    }
+/* Hidden details */
+.project-details {
+  display: none;
+  margin-top: 10px;
+  font-size: 14px;
+}
 
-    .project-number {
-      position: absolute;
-      top: 5px;
-      left: 8px;
-      background: #00f2fe;
-      color: #000;
-      font-weight: bold;
-      padding: 2px 6px;
-      border-radius: 50%;
-    }
+.project-card.active .project-details {
+  display: block;
+}
 
-    .project-details {
-      flex: 1;
-      position: relative;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      min-width: 300px;
-    }
+/* Button */
+.linkedin-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 12px;
+  background: #0077b5;
+  color: white;
+  border-radius: 5px;
+  text-decoration: none;
+}
 
-    .project-background {
-      position: absolute;
-      inset: 0;
-      background-size: cover;
-      background-position: center;
-      filter: blur(6px) brightness(0.7);
-      display: none;
-    }
+/* Responsive */
+@media (max-width: 900px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 
-    .project-text {
-      position: relative;
-      padding: 30px;
-      margin: 40px;
-      background: #fff;
-      border-radius: 20px;
-      display: none;
-    }
+@media (max-width: 600px) {
+  body {
+    flex-direction: column;
+  }
 
-    .project-text.active,
-    .project-background.active {
-      display: block;
-    }
+  .sidebar {
+    width: 100%;
+  }
 
-    .linkedin-btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 8px 15px;
-      background: #0077b5;
-      color: white;
-      border-radius: 6px;
-      text-decoration: none;
-    }
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
-    /* 🔥 MOBILE FIX */
-    @media (max-width: 768px) {
-
-      body {
-        flex-direction: column;
-      }
-
-      .sidebar {
-        width: 100%;
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        text-align: center;
-      }
-
-      .sidebar img {
-        width: 70px;
-        height: 70px;
-      }
-
-      .sidebar h2 {
-        width: 100%;
-        font-size: 1.2rem;
-      }
-
-      .nav-menu {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .nav-menu a {
-        border-left: none;
-        padding: 8px 10px;
-        font-size: 13px;
-      }
-
-      .main {
-        flex-direction: column;
-        padding: 10px;
-      }
-
-      /* GRID 3 PER ROW */
-      .project-list {
-        width: 100%;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 8px;
-      }
-
-      .project-item img {
-        height: 80px;
-      }
-
-      .project-number {
-        font-size: 10px;
-      }
-
-      .project-text {
-        margin: 10px;
-        padding: 12px;
-        font-size: 13px;
-      }
-    }
-
-    /* SMALL PHONES */
-    @media (max-width: 480px) {
-      .project-list {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-  </style>
+</style>
 </head>
 
 <body>
 
 <!-- Sidebar -->
 <aside class="sidebar">
-  <img src="images/You.jpeg" alt="profile">
+  <img src="images/You.jpeg">
   <h2>Jayant Pachori</h2>
-
-  <div class="social-links">
-    <a href="#"><i class="fab fa-x-twitter"></i></a>
-    <a href="#"><i class="fab fa-facebook"></i></a>
-    <a href="https://www.instagram.com/jp16_official"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.linkedin.com/in/jayant-pachori-44b763275"><i class="fab fa-linkedin"></i></a>
-  </div>
 
   <nav class="nav-menu">
     <a href="index.html">Home</a>
@@ -243,106 +134,92 @@
 <!-- Main -->
 <main class="main">
 
-<!-- Project List -->
-<div class="project-list">
+<h1>My Projects</h1>
 
-  <div class="project-item" onclick="showProject(1,'https://images.unsplash.com/photo-1581091870627-3c2f3aef4f9b')">
-    <span class="project-number">1</span>
-    <img src="https://images.unsplash.com/photo-1581091870627-3c2f3aef4f9b">
+<div class="projects-grid">
+
+<!-- Project 1 -->
+<div class="project-card" onclick="toggleProject(this)">
+  <h3>Environment Monitoring System</h3>
+  <div class="project-details">
+    <p>Real-time CO₂ forecasting using IoT sensors, CNN + LSTM, Kalman Filtering & SHAP explainability.</p>
+    <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn">View</a>
   </div>
-
-  <div class="project-item" onclick="showProject(2,'https://images.unsplash.com/photo-1555066931-4365d14bab8c')">
-    <span class="project-number">2</span>
-    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c">
-  </div>
-
-  <div class="project-item" onclick="showProject(3,'https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d')">
-    <span class="project-number">3</span>
-    <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d">
-  </div>
-
-  <div class="project-item" onclick="showProject(4,'https://images.unsplash.com/photo-1551288049-bebda4e38f71')">
-    <span class="project-number">4</span>
-    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71">
-  </div>
-
-  <div class="project-item" onclick="showProject(5,'https://images.unsplash.com/photo-1509395176047-4a66953fd231')">
-    <span class="project-number">5</span>
-    <img src="https://images.unsplash.com/photo-1509395176047-4a66953fd231">
-  </div>
-
-  <div class="project-item" onclick="showProject(6,'https://images.unsplash.com/photo-1550751827-4bd374c3f58b')">
-    <span class="project-number">6</span>
-    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b">
-  </div>
-
-  <div class="project-item" onclick="showProject(7,'https://images.unsplash.com/photo-1526378722484-cc5c5a7b6f2d')">
-    <span class="project-number">7</span>
-    <img src="https://images.unsplash.com/photo-1526378722484-cc5c5a7b6f2d">
-  </div>
-
-  <div class="project-item" onclick="showProject(8,'https://images.unsplash.com/photo-1518770660439-4636190af475')">
-    <span class="project-number">8</span>
-    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475">
-  </div>
-
 </div>
 
-<!-- Project Details -->
-<div class="project-details">
-  <div class="project-background" id="projectBg"></div>
-
-  <div class="project-text" id="project1">
-    <h3>Smart Waste Segregator</h3>
-    <p>IoT system using Arduino & sensors for real-time waste monitoring.</p>
+<!-- Project 2 -->
+<div class="project-card" onclick="toggleProject(this)">
+  <h3>Secure IoT Monitoring</h3>
+  <div class="project-details">
+    <p>Secure IoT communication using lightweight cryptography: Ascon, ECC & SHA-3.</p>
+    <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn">View</a>
   </div>
+</div>
 
-  <div class="project-text" id="project2">
-    <h3>Waste Segregator GUI</h3>
-    <p>JavaFX + MySQL app for managing waste data.</p>
+<!-- Project 3 -->
+<div class="project-card" onclick="toggleProject(this)">
+  <h3>Smart Waste Segregator</h3>
+  <div class="project-details">
+    <p>Arduino-based IoT system using ultrasonic & IR sensors for waste monitoring.</p>
+    <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn">View</a>
   </div>
+</div>
 
-  <div class="project-text" id="project3">
-    <h3>i-MADS</h3>
-    <p>Image processing using linear algebra & DSA.</p>
+<!-- Project 4 -->
+<div class="project-card" onclick="toggleProject(this)">
+  <h3>Waste Segregator GUI</h3>
+  <div class="project-details">
+    <p>JavaFX + MySQL desktop app with login system and real-time dashboard.</p>
+    <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn">View</a>
   </div>
+</div>
 
-  <div class="project-text" id="project4">
-    <h3>Hackathon Tracker</h3>
-    <p>Full DBMS system for hackathon management.</p>
+<!-- Project 5 -->
+<div class="project-card" onclick="toggleProject(this)">
+  <h3>Virtual Hackathon Tracker</h3>
+  <div class="project-details">
+    <p>DBMS project with ER diagrams, normalization, and SQL implementation.</p>
+    <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn">View</a>
   </div>
+</div>
 
-  <div class="project-text" id="project5">
-    <h3>Environment Monitoring System</h3>
-    <p>CO₂ prediction using IoT + deep learning.</p>
+<!-- Project 6 -->
+<div class="project-card" onclick="toggleProject(this)">
+  <h3>Smart Scheduler</h3>
+  <div class="project-details">
+    <p>AI-based scheduling system with data preprocessing & ML algorithms.</p>
+    <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn">View</a>
   </div>
+</div>
 
-  <div class="project-text" id="project6">
-    <h3>Secure IoT Monitoring</h3>
-    <p>Secure communication using cryptography.</p>
+<!-- Project 7 -->
+<div class="project-card" onclick="toggleProject(this)">
+  <h3>i-MADS</h3>
+  <div class="project-details">
+    <p>Image processing using Linear Algebra and Data Structures.</p>
+    <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn">View</a>
   </div>
+</div>
 
-  <div class="project-text" id="project7">
-    <h3>Smart Scheduler</h3>
-    <p>AI-based scheduling system.</p>
+<!-- Project 8 -->
+<div class="project-card" onclick="toggleProject(this)">
+  <h3>Big Data Research</h3>
+  <div class="project-details">
+    <p>Comparative study of Hadoop, Hive, HBase, Pig & Flume.</p>
+    <a href="https://www.linkedin.com/in/jayant-pachori-44b763275" target="_blank" class="linkedin-btn">View</a>
   </div>
-
-  <div class="project-text" id="project8">
-    <h3>Big Data Research</h3>
-    <p>Study of Hadoop ecosystem tools.</p>
-  </div>
+</div>
 
 </div>
 
 </main>
 
 <script>
-function showProject(num, img) {
-  document.querySelectorAll('.project-text').forEach(e => e.classList.remove('active'));
-  const bg = document.getElementById('projectBg');
-  bg.style.backgroundImage = `url(${img})`;
-  bg.classList.add('active');
-  document.getElementById('project'+num).classList.add('active');
+function toggleProject(card) {
+  document.querySelectorAll('.project-card').forEach(c => {
+    if (c !== card) c.classList.remove('active');
+  });
+  card.classList.toggle('active');
 }
 </script>
 
